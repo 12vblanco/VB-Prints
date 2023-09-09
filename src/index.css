@@ -2,11 +2,11 @@
 
 :root {
   --main-font: "Poppins", sans-serif;
-  --bg-color: #f4f7f8;
-  --text-color: #333333;
+  --bright: #f4f7f8;
+  --dark: #333333;
 
   --teal: #2e8b57; /* Teal */
-  --coral: #ff6b6b; /* Coral */
+  --coral: #f83636; /* Coral */
   --blue: #4169e1; /* Royal Blue */
   --golden: #daa520; /* Goldenrod */
   --plum: #8a2be2; /* Plum */
@@ -20,13 +20,18 @@
 
 html,
 body {
-  background: var(--bg-color);
+  background: var(--bright);
   font-family: var(--main-font);
-  color: var(--text-color);
+  color: var(--dark);
 }
 
 a {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+}
+
+.terms:hover,
+.copy:hover {
+  color: var(--coral);
 }

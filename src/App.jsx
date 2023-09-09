@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from "react";
+import CookieConsent from "react-cookie-consent";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom"; // Import BrowserRouter as Routerimport Footer from "./layout/Footer";
+import Footer from "./layout/Footer";
+import Navbar from "./layout/navbar/NavBar";
+import Bio from "./screens/bio/Bio";
+import Home from "./screens/home/Home";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 }
 
-export default App
+function App() {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+  return (
+    <Router>
+      <CookieConsent
+        containerClasses="cookie_container"
+        style={{
+          background: "rgba(3, 3, 3, 0.9)",
+          fontWeight: "500",
+          height: "10vh",
+          alignItems: "center",
+          fontSize: "18px",
+        }}
+        buttonStyle={{
+          borderRadius: "50px",
+          padding: "20px 32px",
+          fontSize: "18px",
+          fontWeight: "700",
+          background: "var(--bright)",
+          color: "var(--dark)",
+        }}
+        contentStyle={{ textAlign: "left", marginBottom: "12px" }}
+      >
+        This website uses cookies and third party software to monitor traffic
+        anonymously and improve user experience. For more info read my{" "}
+        {/* <Span>
+        <a href="/terms" aria-label="Visit Victor Blanco's Terms Page">
+          terms & conditions
+        </a>
+      </Span> */}
+      </CookieConsent>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/bio" element={<Bio />} />
+        {/* <Route path="/terms" element={<Terms scrollToTop={scrollToTop} />} /> */}
+        {/* <Route path="/Success" element={<Success />} /> */}
+      </Routes>
+      <Footer scrollToTop={scrollToTop} />
+    </Router>
+  );
+}
+
+export default App;
