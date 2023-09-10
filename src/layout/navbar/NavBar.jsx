@@ -4,7 +4,7 @@ import styled from "styled-components";
 import logo from "../../assets/images/logo.jpg";
 import logoX2 from "../../assets/images/logoX2.jpg";
 import logoX3 from "../../assets/images/logoX3.jpg";
-// import Modal from "../Modal";
+import Modal from "../../components/Modal";
 import BurgerMenu from "./BurgerMenu";
 import NavMenu from "./NavMenu";
 
@@ -56,7 +56,7 @@ const Navbar = () => {
         )}
       </StyledDiv>
 
-      {/* {show && <Modal handleClose={handleClose} />} */}
+      {show && <Modal handleClose={handleClose} />}
     </>
   );
 };

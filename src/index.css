@@ -6,7 +6,7 @@
   --dark: #333333;
 
   --teal: #2e8b57; /* Teal */
-  --coral: #f83636; /* Coral */
+  --red: #f83636; /* Coral */
   --blue: #4169e1; /* Royal Blue */
   --golden: #daa520; /* Goldenrod */
   --plum: #8a2be2; /* Plum */
@@ -33,5 +33,5 @@ a {
 
 .terms:hover,
 .copy:hover {
-  color: var(--coral);
+  color: var(--red);
 }

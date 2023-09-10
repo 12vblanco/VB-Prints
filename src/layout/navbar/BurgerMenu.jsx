@@ -2,13 +2,13 @@
 import { useState } from "react";
 
 import styled from "styled-components";
-// import Cart from "../Cart";
+import Cart from "./Cart";
 import NavMenu from "./NavMenu";
 
 const BurgerMenu = ({ handleShow, handleClose }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [$isOpen, setIsOpen] = useState(false);
   const handleToggle = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(!$isOpen);
     handleClose();
   };
 
@@ -19,22 +19,24 @@ const BurgerMenu = ({ handleShow, handleClose }) => {
   return (
     <>
       <BurgerDiv>
+        <Cart handleShow={handleShow} />
+
         <BurgerIcon
-          className={isOpen ? "open" : "closed"}
+          className={$isOpen ? "open" : "closed"}
           onClick={handleToggle}
         >
           <BurgerIconLines
-            className={isOpen ? "open line-1" : "closed line1"}
+            className={$isOpen ? "open line-1" : "closed line1"}
           />
           <BurgerIconLines
-            className={isOpen ? "open line-2" : "closed line2"}
+            className={$isOpen ? "open line-2" : "closed line2"}
           />
           <BurgerIconLines
-            className={isOpen ? "open line-3" : "closed line3"}
+            className={$isOpen ? "open line-3" : "closed line3"}
           />
         </BurgerIcon>
       </BurgerDiv>
-      <BurgerToggled isOpen={isOpen}>
+      <BurgerToggled $isOpen={$isOpen}>
         <NavMenu closeMenu={closeMenu} handleShow={handleShow} />
       </BurgerToggled>
     </>
@@ -42,6 +44,7 @@ const BurgerMenu = ({ handleShow, handleClose }) => {
 };
 
 const BurgerDiv = styled.div`
+  display: flex;
   margin-right: 4%;
 
   @media (max-width: 640px) {
@@ -53,9 +56,9 @@ const BurgerDiv = styled.div`
 const BurgerToggled = styled.div`
   position: fixed;
   top: 6.875rem;
-  right: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  right: ${({ $isOpen }) => ($isOpen ? "0" : "-100%")};
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 6.875rem);
   background: var(--bright);
   display: flex;
   justify-content: center;
@@ -149,7 +152,7 @@ const BurgerIconLines = styled.span`
     left: 0;
     border-radius: 50% 50% 0 0;
     transform: ${(props) =>
-      props.isOpen
+      props.$$isOpen
         ? "rotate(-45deg) translate(4px, -4px)"
         : "rotate(45deg) translate(-4px, 4px)"};
   }

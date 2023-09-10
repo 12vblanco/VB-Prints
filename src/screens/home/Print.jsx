@@ -6,24 +6,38 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import AddToButton from "../../components/AddToButton";
 
-const Print = ({ handleShow, print }) => {
+const Print = ({ handleShow, product }) => {
   const [showInfo, setShowInfo] = useState(false);
   const [isMouseOver, setIsMouseOver] = useState(false);
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   const handleMouseEnter = () => {
     setIsMouseOver(true);
   };
+
   const handleMouseLeave = () => {
     setTimeout(() => {
       setIsMouseOver(false);
       setShowInfo(false);
-    }, 2000);
+    }, 1200);
   };
 
   const clickHandler = () => {
     setTimeout(() => {
       setShowInfo(!showInfo);
-    }, 1000);
+    }, 100);
+  };
+
+  const handleNextImage = () => {
+    setCurrentImgIndex((prevIndex) =>
+      prevIndex === product.imgs.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImgIndex((prevIndex) =>
+      prevIndex === 0 ? product.imgs.length - 1 : prevIndex - 1
+    );
   };
 
   return (
@@ -31,37 +45,24 @@ const Print = ({ handleShow, print }) => {
       <CardDiv onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <ImgDiv>
           <Arrows>
-            {print.id === "3" ? (
-              <>
-                <FaChevronLeft
-                  style={{
-                    color: isMouseOver ? "var(--bright)" : "transparent",
-                    transition: "all .3s linear",
-                  }}
-                />
-                <FaChevronRight
-                  style={{
-                    color: isMouseOver ? "var(--bright)" : "transparent",
-                    transition: "all .3s linear",
-                  }}
-                />
-              </>
-            ) : (
-              <>
-                <FaChevronLeft
-                  style={{
-                    color: isMouseOver ? "var(--dark)" : "transparent",
-                    transition: "all .3s linear",
-                  }}
-                />
-                <FaChevronRight
-                  style={{
-                    color: isMouseOver ? "var(--dark)" : "transparent",
-                    transition: "all .3s linear",
-                  }}
-                />{" "}
-              </>
-            )}
+            {/* Left Arrow */}
+            <FaChevronLeft
+              style={{
+                color: isMouseOver ? "var(--dark)" : "transparent",
+                transition: "all .3s linear",
+                cursor: "pointer",
+              }}
+              onClick={handlePrevImage}
+            />
+            {/* Right Arrow */}
+            <FaChevronRight
+              style={{
+                color: isMouseOver ? "var(--dark)" : "transparent",
+                transition: "all .3s linear",
+                cursor: "pointer",
+              }}
+              onClick={handleNextImage}
+            />
           </Arrows>
           <Info
             className="hover"
@@ -71,7 +72,7 @@ const Print = ({ handleShow, print }) => {
               transition: "all .5s linear",
             }}
           >
-            {print.id === "3" ? (
+            {product.id === "3" ? (
               <ImInfo
                 onClick={clickHandler}
                 style={{
@@ -89,29 +90,31 @@ const Print = ({ handleShow, print }) => {
               />
             )}
           </Info>
-          <Link to={print.link}>
+          <Link to={product.link}>
             {showInfo && (
               <Description
                 visible={showInfo}
                 style={{ whiteSpace: "pre-line" }}
               >
-                {print.description}
+                {product.description}
               </Description>
             )}
-
-            <Img src={print.img} alt="A print of tree rings" />
+            <Img
+              src={product.imgs[currentImgIndex]}
+              alt="A product of tree rings"
+            />
           </Link>
         </ImgDiv>
         <RowDiv>
           <ColumnDiv>
-            <Name>{print.name}</Name>
+            <Name>{product.name}</Name>
             <RowDiv style={{ width: "254px" }}>
-              <Format>{print.format}</Format>
-              <Price>£{print.price}</Price>
+              <Format>{product.format}</Format>
+              <Price>£{product.price}</Price>
             </RowDiv>
           </ColumnDiv>
 
-          <AddToButton print={print} handleShow={handleShow}></AddToButton>
+          <AddToButton product={product} handleShow={handleShow}></AddToButton>
         </RowDiv>
       </CardDiv>
     </>
@@ -217,7 +220,7 @@ const Description = styled.div`
   font-weight: 500;
   padding: 4.2rem 1.25rem 3.9rem 1.25rem;
   border-radius: 4px 4px 0px 0px;
-  transition: opacity 2s ease;
+  transition: opacity 5s ease;
   @media (max-width: 360px) {
     font-size: 0.7;
   }

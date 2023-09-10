@@ -2,21 +2,20 @@ import styled from "styled-components";
 import MainContainer from "../../components/MainContainer";
 import StyledContainer from "../../components/StyledContainer";
 import Print from "./Print";
-import { prints } from "./Prints";
+import { products } from "./Prints";
 
 const Home = (handleShow) => {
   return (
     <MainContainer>
       <StyledContainer>
-        {prints.map((print, i) => {
+        {products.map((product, i) => {
           return (
             <ProductCard key={i}>
-              <Print print={print} handleShow={handleShow} />
+              <Print product={product} handleShow={handleShow} />
             </ProductCard>
           );
         })}
       </StyledContainer>
-      {/* <Footer /> */}
     </MainContainer>
   );
 };
