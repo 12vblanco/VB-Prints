@@ -1,13 +1,13 @@
+/* eslint-disable react/prop-types */
 // import React from "react";
 import { FaRegEnvelope } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-// import Cart from "../Cart";
+import Cart from "./Cart";
 
 // eslint-disable-next-line react/prop-types
-//add handleshow with cart
-const NavMenu = (closeMenu) => {
+const NavMenu = ({ handleShow, closeMenu }) => {
   return (
     <>
       <StyledLink>
@@ -38,7 +38,7 @@ const NavMenu = (closeMenu) => {
       </StyledLink>
 
       <StyledLink style={{ marginLeft: "18px", cursor: "pointer" }}>
-        {/* <Cart handleShow={handleShow} onClick={handleShow} /> */}
+        <Cart handleShow={handleShow} onClick={handleShow} />
       </StyledLink>
     </>
   );
@@ -55,7 +55,7 @@ export const StyledLink = styled.div`
   font-weight: 400;
   &:hover,
   .active {
-    color: var(--coral);
+    color: var(--red);
   }
 
   /* @media (max-width: 1800px) {
