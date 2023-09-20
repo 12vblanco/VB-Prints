@@ -4,11 +4,11 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 // Load Stripe with your publishable key
-import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
   "pk_test_51HqgwdGKpDMhyEuL11A63hDc42CNdjZbMH93xDPIumVyYlgGe5byVF9rXhgW0rs64r0uaDjQUqlwOUDXrbTZy9nx00cyCIwiBm"

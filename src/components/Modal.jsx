@@ -4,13 +4,11 @@ import { IoMdClose } from "react-icons/io";
 import styled from "styled-components";
 import { CartContext } from "./CartContext";
 import CartProduct from "./CartProduct";
-import Checkout from "./Checkout";
 
 const Modal = ({ handleClose }) => {
   const cart = useContext(CartContext);
 
-  const checkout = async () => {
-    alert("You are being redirected to Stripe");
+  const openStripeCheckout = async () => {
     try {
       const response = await fetch("/.netlify/functions/stripeCheckout", {
         method: "POST",
@@ -19,17 +17,34 @@ const Modal = ({ handleClose }) => {
         },
         body: JSON.stringify({ amount: cart.getTotalCost(), currency: "usd" }),
       });
-      const { clientSecret } = await response.json();
-      const stripe = window
-        .Stripe
-        // process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
-        ();
-      const { error } = await stripe.redirectToCheckout({ clientSecret });
-      if (error) {
-        console.error("Error:", error);
+
+      if (!response.ok) {
+        // Handle non-200 status codes
+        console.error(
+          "Failed to fetch clientSecret:",
+          response.status,
+          response.statusText
+        );
+        return;
       }
+
+      const { clientSecret } = await response.json();
+
+      if (!clientSecret) {
+        console.error("Received null clientSecret from the server.");
+        return;
+      }
+
+      // Open a new window for the Stripe checkout
+      const stripeWindow = window.open("", "_blank");
+
+      // Pass the clientSecret to the new window
+      stripeWindow.clientSecret = clientSecret;
+
+      // Load the Stripe checkout page in the new window
+      stripeWindow.location.href = "/stripeCheckout.html"; // Replace with the actual URL for your Stripe checkout page
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error while opening Stripe checkout:", error);
     }
   };
 
@@ -79,8 +94,8 @@ const Modal = ({ handleClose }) => {
                   £{cart.getTotalCost().toFixed(2)}
                 </span>
               </p>
-              <div onClick={checkout}>
-                <Checkout cart={cart} />
+              <div onClick={openStripeCheckout}>
+                <CheckoutButton>Checkout</CheckoutButton>
               </div>
             </RowDiv>
           </>
@@ -155,5 +170,7 @@ const RowDiv = styled.div`
   justify-content: space-between;
   cursor: pointer;
 `;
+
+const CheckoutButton = styled.button``;
 
 export default Modal;
