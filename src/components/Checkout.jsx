@@ -1,10 +1,10 @@
 import {
   CardElement,
   Elements,
+  loadStripe,
   useElements,
   useStripe,
-} from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
+} from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
