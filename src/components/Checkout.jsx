@@ -1,7 +1,8 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "./CartContext.jsx";
 import CheckoutForm from "./CheckoutForm.jsx";
 
 const initStripe = async () => {
@@ -12,6 +13,8 @@ const initStripe = async () => {
 };
 
 const Checkout = () => {
+  const cart = useContext(CartContext);
+
   const stripePromise = initStripe();
   const [clientSecretSettings, setClientSecretSettings] = useState({
     clientSecret: "",
@@ -20,8 +23,11 @@ const Checkout = () => {
 
   useEffect(() => {
     async function createPaymentIntent() {
-      const response = await axios.post("/api/create-payment-intent", {});
+      const amount = cart.getTotalCost() * 100;
 
+      const response = await axios.post("/api/create-payment-intent", {
+        amount: amount,
+      });
       setClientSecretSettings({
         clientSecret: response.data.client_secret,
         loading: false,

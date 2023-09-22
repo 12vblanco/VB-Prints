@@ -10,13 +10,13 @@ fastify.get("/publishable-key", () => {
 });
 
 // Create a payment intent and return its client secret
-fastify.post("/create-payment-intent", async () => {
+fastify.post("/create-payment-intent", async (request) => {
+  const { amount } = request.body;
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 1099,
+    amount: amount,
     currency: "gbp",
     payment_method_types: ["paypal", "card"],
   });
-
   return { client_secret: paymentIntent.client_secret };
 });
 
