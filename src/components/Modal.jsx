@@ -8,31 +8,7 @@ import Checkout from "./Checkout";
 
 const Modal = ({ handleClose }) => {
   const cart = useContext(CartContext);
-
-  const checkout = async () => {
-    alert("You are being redirected to Stripe");
-    try {
-      const response = await fetch("/.netlify/functions/stripeCheckout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ amount: cart.getTotalCost(), currency: "usd" }),
-      });
-      const { clientSecret } = await response.json();
-      const stripe = window
-        .Stripe
-        // process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
-        ();
-      const { error } = await stripe.redirectToCheckout({ clientSecret });
-      if (error) {
-        console.error("Error:", error);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
+  const total = cart.getTotalCost().toFixed(2);
   const productsCount = cart.items.reduce(
     (sum, product) => sum + product.quantity,
     0
@@ -74,13 +50,13 @@ const Modal = ({ handleClose }) => {
             ))}
             <RowDiv>
               <p>
-                Total:{" "}
-                <span style={{ fontWeight: "500" }}>
-                  £{cart.getTotalCost().toFixed(2)}
-                </span>
+                Total: <span style={{ fontWeight: "500" }}>£{total}</span>
               </p>
-              <div onClick={checkout}>
-                <Checkout cart={cart} />
+              <div
+              // onClick={openStripeCheckout}
+              >
+                {/* <CheckoutButton>Checkout</CheckoutButton> */}
+                <Checkout />
               </div>
             </RowDiv>
           </>
@@ -155,5 +131,7 @@ const RowDiv = styled.div`
   justify-content: space-between;
   cursor: pointer;
 `;
+
+const CheckoutButton = styled.button``;
 
 export default Modal;
