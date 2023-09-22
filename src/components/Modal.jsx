@@ -4,50 +4,11 @@ import { IoMdClose } from "react-icons/io";
 import styled from "styled-components";
 import { CartContext } from "./CartContext";
 import CartProduct from "./CartProduct";
+import Checkout from "./Checkout";
 
 const Modal = ({ handleClose }) => {
   const cart = useContext(CartContext);
-
-  const openStripeCheckout = async () => {
-    try {
-      const response = await fetch("/.netlify/functions/stripeCheckout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ amount: cart.getTotalCost(), currency: "usd" }),
-      });
-
-      if (!response.ok) {
-        // Handle non-200 status codes
-        console.error(
-          "Failed to fetch clientSecret:",
-          response.status,
-          response.statusText
-        );
-        return;
-      }
-
-      const { clientSecret } = await response.json();
-
-      if (!clientSecret) {
-        console.error("Received null clientSecret from the server.");
-        return;
-      }
-
-      // Open a new window for the Stripe checkout
-      const stripeWindow = window.open("", "_blank");
-
-      // Pass the clientSecret to the new window
-      stripeWindow.clientSecret = clientSecret;
-
-      // Load the Stripe checkout page in the new window
-      stripeWindow.location.href = "/stripeCheckout.html"; // Replace with the actual URL for your Stripe checkout page
-    } catch (error) {
-      console.error("Error while opening Stripe checkout:", error);
-    }
-  };
-
+  const total = cart.getTotalCost().toFixed(2);
   const productsCount = cart.items.reduce(
     (sum, product) => sum + product.quantity,
     0
@@ -89,13 +50,13 @@ const Modal = ({ handleClose }) => {
             ))}
             <RowDiv>
               <p>
-                Total:{" "}
-                <span style={{ fontWeight: "500" }}>
-                  £{cart.getTotalCost().toFixed(2)}
-                </span>
+                Total: <span style={{ fontWeight: "500" }}>£{total}</span>
               </p>
-              <div onClick={openStripeCheckout}>
-                <CheckoutButton>Checkout</CheckoutButton>
+              <div
+              // onClick={openStripeCheckout}
+              >
+                {/* <CheckoutButton>Checkout</CheckoutButton> */}
+                <Checkout />
               </div>
             </RowDiv>
           </>

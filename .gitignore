@@ -7,18 +7,28 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node.js dependencies
 node_modules
-dist
-dist-ssr
-*.local
+
+# Build output
+/dist
+/dist-ssr
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# macOS specific files
 .DS_Store
+
+# Visual Studio files
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Package lock files
+package-lock.json
+yarn.lock
