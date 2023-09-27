@@ -4,12 +4,7 @@
   --main-font: "Poppins", sans-serif;
   --bright: #f4f7f8;
   --dark: #333333;
-
-  --teal: #2e8b57; /* Teal */
   --red: #f83636; /* Coral */
-  --blue: #4169e1; /* Royal Blue */
-  --golden: #daa520; /* Goldenrod */
-  --plum: #8a2be2; /* Plum */
 }
 
 * {
@@ -34,4 +29,11 @@ a {
 .terms:hover,
 .copy:hover {
   color: var(--red);
+}
+
+p {
+  font-size: 18px;
+}
+h3 {
+  margin-top: 1rem;
 }

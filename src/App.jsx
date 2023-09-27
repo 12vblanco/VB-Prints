@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import CookieConsent from "react-cookie-consent";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import styled from "styled-components";
 import CartProvider from "./components/CartContext";
 import Footer from "./layout/Footer";
 import Navbar from "./layout/navbar/NavBar";
 import Success from "./screens/Success";
+import Terms from "./screens/Terms";
 import Bio from "./screens/bio/Bio";
 import Contact from "./screens/contact/Contact";
 import Home from "./screens/home/Home";
@@ -57,7 +59,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/bio" element={<Bio />} />
           <Route path="/contact" element={<Contact />} />
-          {/* <Route path="/terms" element={<Terms scrollToTop={scrollToTop} />} /> */}
+          <Route path="/terms" element={<Terms scrollToTop={scrollToTop} />} />
           <Route path="/success" element={<Success />} />
         </Routes>
         <Footer scrollToTop={scrollToTop} />
@@ -65,5 +67,7 @@ function App() {
     </CartProvider>
   );
 }
+
+const Span = styled.span``;
 
 export default App;
