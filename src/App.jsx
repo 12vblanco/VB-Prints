@@ -42,7 +42,7 @@ function App() {
             background: "var(--bright)",
             color: "var(--dark)",
           }}
-          contentStyle={{ textAlign: "left", marginBottom: "12px" }}
+          contentStyle={{ textAlign: "left", marginBottom: "42px" }}
         >
           This website uses cookies and third party software to monitor traffic
           anonymously and improve user experience. For more info read my{" "}
