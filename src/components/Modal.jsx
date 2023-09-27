@@ -49,14 +49,35 @@ const Modal = ({ handleClose }) => {
               />
             ))}
             <RowDiv>
-              <p>
-                Total: <span style={{ fontWeight: "500" }}>£{total}</span>
-              </p>
-              <div
-              // onClick={openStripeCheckout}
-              >
-                {/* <CheckoutButton>Checkout</CheckoutButton> */}
-                <Checkout />
+              <div>
+                <div style={{ display: "flex" }}>
+                  <img
+                    src="src/assets/images/stripe_logo.png"
+                    style={{
+                      width: "60px",
+                      marginTop: "-18px",
+                      borderRadius: "12px",
+                    }}
+                  />
+                  <p
+                    style={{
+                      marginBottom: "2px",
+                      textAlign: "center",
+                      width: "100%",
+                      marginTop: "-18px",
+                      fontSize: "19px",
+                    }}
+                  >
+                    Total:{" "}
+                    <span style={{ fontWeight: "500", fontSize: "17px" }}>
+                      £{total}
+                    </span>
+                  </p>
+                </div>
+                <div>
+                  {/* <CheckoutButton>Checkout</CheckoutButton> */}
+                  <Checkout cartItems={cart.items} />
+                </div>
               </div>
             </RowDiv>
           </>
@@ -104,14 +125,14 @@ const ModalWrapper = styled.div`
 
 const ModalHeader = styled.header`
   display: flex;
-  font-size: 18px;
+  font-size: 1.125rem;
   justify-content: space-between;
-  padding-bottom: 1rem;
+  padding-bottom: 0.4rem;
   font-weight: 500;
 `;
 
 const Close = styled.div`
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   cursor: pointer;
   position: absolute;
   border-radius: 1.2rem;
@@ -132,6 +153,6 @@ const RowDiv = styled.div`
   cursor: pointer;
 `;
 
-const CheckoutButton = styled.button``;
+// const CheckoutButton = styled.button``;
 
 export default Modal;

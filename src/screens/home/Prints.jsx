@@ -45,7 +45,7 @@ import {
 //prunus= price_1LxHk4GKpDMhyEuL53Xfr9oB
 const products = [
   {
-    id: "price_1LxHiBGKpDMhyEuLOkox92AU",
+    id: "CupressusXleylandiiA1",
     name: "Cupressus x leylandii",
     format: "A1 paper (594 x 841 mm)",
     price: "90",
@@ -59,7 +59,7 @@ const products = [
     next: "/prunusSerrulata",
   },
   {
-    id: "price_1LxHk4GKpDMhyEuL53Xfr9oB",
+    id: "PrunusSerrulataKanzanA2",
     name: "Prunus serrulata 'Kanzan'",
     format: "A2 paper (420 x 594 mm)",
     price: "60",
@@ -73,7 +73,7 @@ const products = [
     next: "/fraxinusSmall",
   },
   {
-    id: "3",
+    id: "FraxinusExcelsiorA4",
     name: "Fraxinus excelsior A4",
     format: "A4 paper (297 x 210 mm)",
     price: "25",
@@ -87,7 +87,7 @@ const products = [
     next: "/sycamore",
   },
   {
-    id: "4",
+    id: "AcerPseudoplatanusA1",
     name: "Acer pseudoplatanus",
     format: "A1 paper (594 x 841 mm)",
     price: "90",
@@ -101,7 +101,7 @@ const products = [
     next: "/platanoides",
   },
   {
-    id: "5",
+    id: "AcerPlatanoidesA2",
     name: "Acer platanoides",
     format: "A2 paper (420 x 594 mm)",
     price: "60",
@@ -115,7 +115,7 @@ const products = [
     next: "/douglas",
   },
   {
-    id: "6",
+    id: "PseudotsugaMenziesiiA1",
     name: "Pseudotsuga menziesii",
     format: "A1 paper (594 x 841 mm)",
     price: "90",
@@ -129,7 +129,7 @@ const products = [
     next: "/prunusTwin",
   },
   {
-    id: "7",
+    id: "PrunusSerrulataA2",
     name: "Prunus serrulata",
     format: "A2 paper (420 x 594 mm)",
     price: "60",
@@ -143,8 +143,8 @@ const products = [
     next: "/roundAsh",
   },
   {
-    id: "8",
-    name: "Fraxinus excelsion",
+    id: "FraxinusExcelsiorA2",
+    name: "Fraxinus excelsior",
     format: "A2 paper (420 x 594 mm)",
     price: "60",
     description:
@@ -157,7 +157,7 @@ const products = [
     next: "/prunusAvium",
   },
   {
-    id: "9",
+    id: "PrunusAviumA2",
     name: "Prunus avium",
     format: "A2 paper (420 x 594 mm)",
     price: "60",

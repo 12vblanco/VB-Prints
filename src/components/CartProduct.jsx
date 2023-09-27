@@ -65,7 +65,7 @@ const Name = styled.p`
   font-weight: 500;
 `;
 const Qty = styled.h3`
-  color: var(--red);
+  color: var(--dark);
   font-size: 0.875rem;
   font-weight: 300;
 
