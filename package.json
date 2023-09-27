@@ -12,7 +12,8 @@
     "start": "npm run development",
     "development": "NODE_ENV=development concurrently --kill-others \"npm run client\" \"npm run server\"",
     "client": "vite",
-    "server": "node server.jsx"
+    "server": "node server.jsx",
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
