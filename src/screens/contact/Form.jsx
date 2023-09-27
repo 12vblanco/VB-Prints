@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import MainContainer from "../../components/MainContainer";
 
 const Form = () => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
   };
   return (
-    <MainContainer>
+    <Div>
       <FromContainer>
         <H1>Contact us!</H1>
         <StyledForm
@@ -55,9 +54,11 @@ const Form = () => {
           <InputButton type="submit" value="Send" />
         </StyledForm>
       </FromContainer>
-    </MainContainer>
+    </Div>
   );
 };
+
+const Div = styled.div``;
 
 const FromContainer = styled.div`
   display: flex;
@@ -74,7 +75,6 @@ const H1 = styled.h1`
   font-size: 1.125rem;
   margin-bottom: 1rem;
   font-weight: 700;
-  margin-top: 5rem;
   @media (max-width: 640px) {
     margin-top: 1rem;
     margin-bottom: 0.6rem;
@@ -109,7 +109,7 @@ const Input = styled.input`
 const TextArea = styled.textarea`
   width: 100%;
   padding: 0.4375rem;
-  height: 2.6rem;
+  height: 2rem;
   border: 0 solid black;
   border-bottom: 0.2rem solid var(--dark);
   outline: 0;
@@ -154,7 +154,6 @@ const InputButton = styled.input`
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  z-index: 110;
   border: 0.2rem solid var(--dark);
   display: block;
   margin: 0.6rem auto 0.2rem auto;
