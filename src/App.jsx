@@ -46,7 +46,7 @@ function App() {
         >
           This website uses cookies and third party software to monitor traffic
           anonymously and improve user experience. For more info read my{" "}
-          <Span>
+          <Span style={{ color: "var(--red)" }}>
             <a href="/terms" aria-label="Visit Victor Blanco's Terms Page">
               terms & conditions
             </a>
