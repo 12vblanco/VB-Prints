@@ -10,7 +10,7 @@ const Bio = () => {
   return (
     <MainContainer>
       <StyledContainer>
-        <DivTextImg style={{ paddingTop: "4rem" }}>
+        <DivTextImg>
           <Img src={Img1} />
           <BioText>
             Before becoming a software developer, my professional life has
