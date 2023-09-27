@@ -12,7 +12,7 @@ const initStripe = async () => {
   return loadStripe(publishableKey);
 };
 
-const Checkout = () => {
+const Checkout = ({ cartItems }) => {
   const cart = useContext(CartContext);
 
   const stripePromise = initStripe();
@@ -49,7 +49,7 @@ const Checkout = () => {
           }}
         >
           {" "}
-          <CheckoutForm />
+          <CheckoutForm cartItems={cartItems} />{" "}
         </Elements>
       )}
     </div>

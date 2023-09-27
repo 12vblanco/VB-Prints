@@ -90,7 +90,8 @@ const Print = ({ handleShow, product }) => {
               />
             )}
           </Info>
-          <Link to={product.link}>
+          {/* <Link to={product.link}> */}
+          <Link to={""}>
             {showInfo && (
               <Description
                 visible={showInfo}
