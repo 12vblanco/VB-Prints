@@ -28,21 +28,26 @@ function App() {
         <CookieConsent
           containerClasses="cookie_container"
           style={{
-            background: "rgba(3, 3, 3, 0.9)",
+            background: "rgba(3, 3, 3, 0.8)",
             fontWeight: "500",
-            height: "10vh",
+            height: "fit-content",
             alignItems: "center",
-            fontSize: "18px",
+            fontSize: "16px",
+            paddingBottom: "2px",
           }}
           buttonStyle={{
             borderRadius: "50px",
             padding: "20px 32px",
-            fontSize: "18px",
+            fontSize: "16px",
             fontWeight: "700",
             background: "var(--bright)",
             color: "var(--dark)",
+            marginBottom: "22px",
           }}
-          contentStyle={{ textAlign: "left", marginBottom: "42px" }}
+          contentStyle={{
+            textAlign: "left",
+            marginBottom: "22px",
+          }}
         >
           This website uses cookies and third party software to monitor traffic
           anonymously and improve user experience. For more info read my{" "}
