@@ -58,7 +58,10 @@ const Form = () => {
   );
 };
 
-const Div = styled.div``;
+const Div = styled.div`
+  width: 100vw;
+  position: relative;
+`;
 
 const FromContainer = styled.div`
   display: flex;
@@ -95,15 +98,15 @@ const StyledForm = styled.form`
 
 const Input = styled.input`
   width: 100%;
-  padding: 7px;
-  height: 42px;
+  padding: 0.4375rem;
+  height: 2.625rem;
   border: 0 solid black;
   border-bottom: 0.2rem solid var(--dark);
   outline: 0;
   font-size: 1.125rem;
   background: transparent;
   @media (max-width: 640px) {
-    width: 80%;
+    width: 94%;
   }
 `;
 const TextArea = styled.textarea`
@@ -116,7 +119,7 @@ const TextArea = styled.textarea`
   font-size: 1.125rem;
   background: transparent;
   @media (max-width: 640px) {
-    width: 80%;
+    width: 94%;
   }
 `;
 
