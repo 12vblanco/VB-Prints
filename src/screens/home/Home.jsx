@@ -21,7 +21,7 @@ const Home = (handleShow) => {
 };
 
 const ProductCard = styled.div`
-  margin: 6px 10px;
+  margin: 0.275rem 0.625rem;
 `;
 
 export default Home;

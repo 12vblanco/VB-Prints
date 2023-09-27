@@ -6,6 +6,7 @@ import Footer from "./layout/Footer";
 import Navbar from "./layout/navbar/NavBar";
 import Success from "./screens/Success";
 import Bio from "./screens/bio/Bio";
+import Contact from "./screens/contact/Contact";
 import Home from "./screens/home/Home";
 
 function scrollToTop() {
@@ -55,6 +56,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/bio" element={<Bio />} />
+          <Route path="/contact" element={<Contact />} />
           {/* <Route path="/terms" element={<Terms scrollToTop={scrollToTop} />} /> */}
           <Route path="/success" element={<Success />} />
         </Routes>

@@ -74,7 +74,6 @@ const StyledDiv = styled.nav`
   align-items: center;
   justify-content: space-evenly;
   z-index: 123;
-  /* box-shadow: 4px 0px 18px rgba(3, 3, 3, 0.06); */
 
   @media (max-width: 400px) {
     margin-left: 0;
@@ -114,10 +113,7 @@ const NavUl = styled.ul`
 const Img = styled.img`
   width: 70px;
   @media (max-width: 685px) {
-    width: 50px;
-  }
-  @media (max-width: 610px) {
-    width: 40px;
+    display: none;
   }
 `;
 
@@ -137,11 +133,12 @@ const Name = styled.h1`
     margin-left: 1rem;
   }
   @media (max-width: 610px) {
-    font-size: 2.125rem;
+    font-size: 1.6rem;
+    width: 100%;
     margin-left: 0.4rem;
   }
   @media (max-width: 360px) {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 `;
 

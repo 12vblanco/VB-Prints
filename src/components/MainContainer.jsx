@@ -16,8 +16,8 @@ const Div = styled.div`
   margin: 0 auto;
   height: auto;
   padding-top: 4%;
-  font-size: 22px;
-  margin-top: 110px;
+  font-size: 1.375rem;
+  margin-top: 6.875rem;
   margin-bottom: 2rem;
   @media (max-width: 1440px) {
     padding-top: 0%;

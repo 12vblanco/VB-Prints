@@ -10,7 +10,7 @@ const Bio = () => {
   return (
     <MainContainer>
       <StyledContainer>
-        <DivTextImg>
+        <DivTextImg style={{ paddingTop: "4rem" }}>
           <Img src={Img1} />
           <BioText>
             Before becoming a software developer, my professional life has
@@ -75,7 +75,11 @@ const DivTextImg = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin: 8px 0;
+  margin: 2.375rem 0;
+
+  @media (max-width: 646px) {
+    margin: 0;
+  }
 `;
 
 const Img = styled.img`
@@ -99,7 +103,7 @@ const BioText = styled.p`
   padding: 1rem 5rem;
   @media (max-width: 646px) {
     font-size: 0.9375rem;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
   }
 `;
 

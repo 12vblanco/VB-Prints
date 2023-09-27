@@ -28,15 +28,16 @@ const ShoppingDiv = styled.div`
 `;
 
 const ShoppingCart = styled(MdOutlineShoppingCart)`
-  font-size: 46px;
-  margin-top: 16px;
-  width: 56px;
+  font-size: 2.875rem;
+  margin-top: 1rem;
+  width: 3.5rem;
   margin-left: 1.6rem;
   position: relative;
   @media (max-width: 646px) {
-    font-size: 44px;
-    margin-top: 6px;
-    margin-right: 12px;
+    font-size: 2.2rem;
+    margin-top: 1.125rem;
+    margin-right: -0.625rem;
+    margin-left: 0px;
   }
 `;
 
@@ -46,13 +47,18 @@ const Counter = styled.div`
   align-items: center;
   border-radius: 50%;
   color: #fff;
-  width: 26px;
-  height: 28px;
-  font-size: 20px;
+  width: 1.625rem;
+  height: 1.75rem;
+  font-size: 1.25rem;
   background: var(--red);
   position: relative;
-  top: 5px;
+  top: 0.3125rem;
   right: 14px;
+  @media (max-width: 646px) {
+    width: 1.1875rem;
+    height: 1.375rem;
+    font-size: 1rem;
+  }
 `;
 
 export default Cart;

@@ -48,8 +48,7 @@ const BurgerDiv = styled.div`
   margin-right: 4%;
 
   @media (max-width: 640px) {
-    flex: initial;
-    margin: 0;
+    margin-right: 7%;
   }
 `;
 
@@ -65,8 +64,11 @@ const BurgerToggled = styled.div`
   align-items: center;
   flex-direction: column;
   transition: right 0.4s ease-in-out;
-  @media (max-width: 400px) {
+  @media (max-width: 640px) {
     top: 6rem;
+  }
+  @media (max-width: 400px) {
+    top: 80px;
   }
 `;
 
