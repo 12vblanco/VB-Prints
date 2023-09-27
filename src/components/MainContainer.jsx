@@ -24,7 +24,7 @@ const Div = styled.div`
     justify-content: flex-start;
   }
   @media (max-width: 1040px) {
-    margin-top: 0rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
   }
 `;
