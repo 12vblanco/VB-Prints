@@ -140,12 +140,12 @@ const Checkbox = styled.input`
 
 const CheckText = styled.p`
   text-align: left;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   line-height: 1.5;
   padding-left: 2rem;
-  margin-top: -36px;
+  margin-top: -2rem;
   @media (max-width: 640px) {
-    width: 80%;
+    width: 94%;
   }
 `;
 
