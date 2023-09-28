@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { IoMdClose } from "react-icons/io";
 import styled from "styled-components";
+import stripe_img from "../assets/images/stripe_logo.png";
 import { CartContext } from "./CartContext";
 import CartProduct from "./CartProduct";
 import Checkout from "./Checkout";
@@ -52,7 +53,7 @@ const Modal = ({ handleClose }) => {
               <div>
                 <div style={{ display: "flex" }}>
                   <img
-                    src="../assets/images/stripe_logo.png"
+                    src={stripe_img}
                     style={{
                       width: "60px",
                       marginTop: "-18px",
