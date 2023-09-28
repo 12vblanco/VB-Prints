@@ -1,14 +1,12 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
     port: 4242,
     proxy: {
-      // string shorthand
-      // with options
+      "/.netlify/functions/": "http://localhost:8888",
       "/api": {
         target: "http://localhost:5252",
         changeOrigin: true,

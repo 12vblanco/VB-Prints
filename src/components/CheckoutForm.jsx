@@ -52,7 +52,7 @@ const CheckoutForm = ({ cartItems }) => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:4242/success",
+        return_url: "/success",
         payment_method_data: {
           type: "card",
           billing_details: {
