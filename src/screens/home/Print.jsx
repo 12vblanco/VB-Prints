@@ -181,7 +181,7 @@ const Name = styled.h2`
   }
 `;
 const Format = styled.h4`
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 300;
   z-index: 123;
   @media (max-width: 360px) {
@@ -190,9 +190,11 @@ const Format = styled.h4`
 `;
 
 const Price = styled.span`
-  font-size: 1.125rem;
+  font-size: 1.5rem;
+  margin-top: -6px;
   position: relative;
   font-weight: 500;
+  color: var(--red);
   @media (max-width: 360px) {
     font-size: 1rem;
   }

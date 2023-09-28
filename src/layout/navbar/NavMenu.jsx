@@ -1,12 +1,10 @@
-/* eslint-disable react/prop-types */
-// import React from "react";
+import React from "react";
 import { FaRegEnvelope } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Cart from "./Cart";
 
-// eslint-disable-next-line react/prop-types
 const NavMenu = ({ handleShow, closeMenu }) => {
   return (
     <>
