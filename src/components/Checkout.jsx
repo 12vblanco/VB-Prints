@@ -6,7 +6,7 @@ import { CartContext } from "./CartContext.jsx";
 import CheckoutForm from "./CheckoutForm.jsx";
 
 const initStripe = async () => {
-  const res = await axios.get("/.netlify/functions/publishable-key");
+  const res = await axios.get("src/functions/publishable-key.jsx");
   console.log("Publishable Key:", res.data.publishable_key);
   const publishableKey = await res.data.publishable_key;
 
@@ -31,12 +31,9 @@ const Checkout = ({ cartItems }) => {
     async function createPaymentIntent() {
       const amount = cart.getTotalCost() * 100;
 
-      const response = await axios.post(
-        "/.netlify/functions/create-payment-intent",
-        {
-          amount: amount,
-        }
-      );
+      const response = await axios.post("src/functions/create-payment-intent", {
+        amount: amount,
+      });
       setClientSecretSettings({
         clientSecret: response.data.client_secret,
         loading: false,
