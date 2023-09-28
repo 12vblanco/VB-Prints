@@ -7,6 +7,7 @@ import CheckoutForm from "./CheckoutForm.jsx";
 
 const initStripe = async () => {
   const res = await axios.get("/.netlify/functions/publishable-key");
+  console.log("Publishable Key:", res.data.publishable_key);
   const publishableKey = await res.data.publishable_key;
 
   return loadStripe(publishableKey);
@@ -15,7 +16,12 @@ const initStripe = async () => {
 const Checkout = ({ cartItems }) => {
   const cart = useContext(CartContext);
 
-  const stripePromise = initStripe();
+  const [stripe, setStripe] = useState(null);
+
+  useEffect(() => {
+    initStripe().then((s) => setStripe(s));
+  }, []);
+
   const [clientSecretSettings, setClientSecretSettings] = useState({
     clientSecret: "",
     loading: true,
