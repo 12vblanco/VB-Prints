@@ -52,7 +52,7 @@ const Modal = ({ handleClose }) => {
               <div>
                 <div style={{ display: "flex" }}>
                   <img
-                    src="/assets/images/stripe_logo.png"
+                    src="../assets/images/stripe_logo.png"
                     style={{
                       width: "60px",
                       marginTop: "-18px",
