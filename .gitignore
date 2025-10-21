@@ -33,4 +33,7 @@ node_modules
 package-lock.json
 yarn.lock
 
+netlify/functions/
 .env
+.env.local
+.env.*.local
